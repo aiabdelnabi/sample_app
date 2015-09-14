@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 ruby '2.2.1'
 
 gem 'rails', '4.2.4'
+gem 'bootstrap-sass', '~> 3.3.5.1'
 gem 'bcrypt', '~> 3.1.10'
 gem 'faker', '~> 1.5.0'
 gem 'carrierwave', '~> 0.10.0'
