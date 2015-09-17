@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+	has_many :microposts, dependent: :destroy
+
 	attr_accessor :remember_token, :activation_token, :reset_token
 	before_save :before_save_downcase
 	before_create :create_activation_digest
@@ -67,6 +69,11 @@ class User < ActiveRecord::Base
 	# Return ture if a password reset has expired.
 	def password_rest_expired?
 		reset_sent_at < 2.hours.ago
+	end
+
+	# Define a proto-feed
+	def feed
+		Micropost.where("user_id = ?", id)
 	end
 
 	private
